@@ -1,81 +1,14 @@
 import React from 'react';
-import { Text, Button, StyleSheet, Image, View, ImageBackground, TextInput, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
-import { Card, CardItem, Thumbnail, Left, Body, Title, Right, Item, Input } from 'native-base';
-import { createAppContainer, createStackNavigator, StackActions, NavigationActions, createBottomTabNavigator } from 'react-navigation';
+import { Text, Button, StyleSheet, Image, View, Dimensions, ScrollView } from 'react-native';
+import { Card, CardItem, Thumbnail, Left, Body, Item, Input } from 'native-base';
+import { createAppContainer, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons'
 import { Ionicons } from '@expo/vector-icons';
 
-import bgImage from './assets/fondo-inicio.jpg';
-import logo from './assets/Logo_2018.png';
+
+import IniciarSesion from './screens/IniciarSesion';
 
 const { width: WIDTH } = Dimensions.get('window')
-
-class IniciarSesión extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      showPass: true,
-      press: false,
-    }
-  }
-  showPass = () => {
-    if (this.state.press == false) {
-      this.setState({ showPass: false, press: true })
-    } else {
-      this.setState({ showPass: true, press: false })
-    }
-  }
-  render() {
-    return (
-      <ImageBackground source={bgImage} style={styles.backgroundContainer}>
-        <View style={styles.logoContainer}>
-          <Image source={logo} style={styles.logo} />
-        </View>
-
-        <View style={styles.imputContainer}>
-          <Icon name={'ios-phone-portrait'} size={28} color={'rgba(255,255,255, 0.7)'}
-            style={styles.imputIcon} />
-          <TextInput
-            style={styles.input}
-            placeholder={'Escribe tu numero'}
-            placeholderTextColor={'rgba(255,255,255, 0.7)'}
-            underlineColorAndroid='transparent'
-          />
-        </View>
-
-        <View style={styles.imputContainer}>
-          <Icon name={'ios-lock'} size={28} color={'rgba(255,255,255, 0.7)'}
-            style={styles.imputIcon} />
-          <TextInput
-            style={styles.input}
-            placeholder={'Contraseña'}
-            secureTextEntry={this.state.showPass}
-            placeholderTextColor={'rgba(255,255,255, 0.7)'}
-            underlineColorAndroid='transparent'
-          />
-          <TouchableOpacity style={styles.btnEyes}
-            onPress={this.showPass.bind(this)} >
-            <Icon name={this.state.press == false ? 'md-eye' : 'md-eye-off'}
-              size={26} color={'rgba(255,255,255, 0.7)'} />
-          </TouchableOpacity>
-        </View>
-
-        <TouchableOpacity style={styles.btnLogin}
-          onPress={() => {
-            this.props.navigation.dispatch(StackActions.reset({
-              index: 0,
-              actions: [
-                NavigationActions.navigate({ routeName: 'Inicio' })
-              ],
-            }))
-          }}>
-          <Text style={styles.text}> Iniciar </Text>
-        </TouchableOpacity>
-      </ImageBackground>
-    );
-  }
-}
-
 
 class Inicio extends React.Component {
   static navigationOptions = {
@@ -204,7 +137,7 @@ class RecetasCategoria extends React.Component {
 
 const AppNavigator = createStackNavigator({
   Home: {
-    screen: IniciarSesión,
+    screen: IniciarSesion,
   },
   Inicio: {
     screen: Inicio,
@@ -259,47 +192,6 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center'
-  },
-  logo: {
-    width: 250,
-    height: 150,
-  },
-  imputContainer: {
-    marginTop: 5,
-    marginBottom: 5,
-  },
-  input: {
-    width: WIDTH - 55,
-    height: 45,
-    borderRadius: 25,
-    fontSize: 16,
-    paddingLeft: 45,
-    backgroundColor: 'rgba( 0, 0, 0, 0.35)',
-    color: 'rgba( 225, 225, 225, 0.7)',
-    marginHorizontal: 25,
-  },
-  imputIcon: {
-    position: 'absolute',
-    top: 8,
-    left: 37,
-  },
-  btnEyes: {
-    position: 'absolute',
-    top: 8,
-    right: 37,
-  },
-  btnLogin: {
-    width: WIDTH - 55,
-    height: 45,
-    borderRadius: 25,
-    backgroundColor: '#b92147',
-    justifyContent: 'center',
-    marginTop: 20,
-  },
-  text: {
-    color: '#ffffff',
-    fontSize: 16,
-    textAlign: 'center',
   },
   contentContainer: {
     paddingTop: 3,
