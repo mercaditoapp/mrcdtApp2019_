@@ -3,8 +3,6 @@ import { Text, Button, StyleSheet, Image, View, ScrollView } from 'react-native'
 import { Card, CardItem, Thumbnail, Left, Body, Item, Input } from 'native-base';
 import { createAppContainer, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons'
-import { Ionicons } from '@expo/vector-icons';
-
 
 export default class Inicio extends React.Component {
     static navigationOptions = {
@@ -16,6 +14,13 @@ export default class Inicio extends React.Component {
       headerTitleStyle: {
         fontWeight: 'bold',
       },
+      headerRight: (
+        <Button
+          onPress={() => alert('This is a button!')}
+          title="Info"
+          color="#fff"
+        />
+      ),
     };
     render() {
       return (

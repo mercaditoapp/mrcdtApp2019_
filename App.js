@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button, StyleSheet, View, } from 'react-native';
+import { Text, View, } from 'react-native';
 import { createAppContainer, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons'
 import { Ionicons } from '@expo/vector-icons';
@@ -12,15 +12,9 @@ import RecetasCategoria from './screens/RecetasCategoria';
 
 
 const AppNavigator = createStackNavigator({
-  Home: {
-    screen: IniciarSesion,
-  },
-  Inicio: {
-    screen: Inicio,
-  },
-  RecetasCategoria: {
-    screen: RecetasCategoria
-  },
+  Home: {  screen: IniciarSesion, },
+  Inicio: { screen: Inicio, },
+  RecetasCategoria: { screen: RecetasCategoria },
 },
   {
     initialRouteName: 'Home',
@@ -58,21 +52,3 @@ export default createAppContainer(createBottomTabNavigator(
 
 ));
 
-const styles = StyleSheet.create({
-  backgroundContainer: {
-    flex: 1,
-    width: null,
-    height: null,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logoContainer: {
-    alignItems: 'center'
-  },
-  contentContainer: {
-    paddingTop: 3,
-  },
-  buscador: {
-    marginTop: 3,
-  }
-});
