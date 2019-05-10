@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, Button, StyleSheet, Image, View, ScrollView } from 'react-native';
 import { Card, CardItem, Thumbnail, Left, Body, Item, Input } from 'native-base';
-import { createAppContainer, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class Inicio extends React.Component {
@@ -82,8 +81,8 @@ export default class Inicio extends React.Component {
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text style={{ fontSize: 50 }}>Inicio</Text>
             <Button
-              title="Ir a Categorias"
-              onPress={() => this.props.navigation.navigate('Explorar')}
+              title="Go to Receta"
+              onPress={() => this.props.navigation.navigate('Receta')}
             />
           </View>
         </ScrollView>

@@ -15,12 +15,12 @@ export default class Explorar extends React.Component {
     };
     render() {
       return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{ fontSize: 50 }}>Explorar!</Text>
-          <Button
-            title="Revisar Recetas"
-            onPress={() => this.props.navigation.navigate('RecetasCategoria')}
-          />
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={{ fontSize: 50 }} >Explorar Screen</Text>
+        <Button
+          title="Go to Recetas"
+          onPress={() => this.props.navigation.navigate('Recetas')}
+        />
         </View>
       );
     }

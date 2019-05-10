@@ -59,14 +59,7 @@ export default class IniciarSesion extends React.Component {
         </View>
 
         <TouchableOpacity style={styles.btnLogin}
-          onPress={() => {
-            this.props.navigation.dispatch(StackActions.reset({
-              index: 0,
-              actions: [
-                NavigationActions.navigate({ routeName: 'Inicio' })
-              ],
-            }))
-          }}>
+          onPress={() => this.props.navigation.navigate('TabNavigator')}>
           <Text style={styles.text}> Iniciar </Text>
         </TouchableOpacity>
       </ImageBackground>
